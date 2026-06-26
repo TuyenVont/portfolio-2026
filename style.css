@@ -721,7 +721,7 @@ video {
   margin-top: 22px;
 }
 
-.tool-grid span {
+.tool-grid > span {
   min-height: 48px;
   display: grid;
   place-items: center;
@@ -734,7 +734,7 @@ video {
   transition: 0.24s ease;
 }
 
-.tool-grid span:hover {
+.tool-grid > span:hover {
   color: var(--white);
   background: var(--blue);
   border-color: var(--blue);
@@ -2168,5 +2168,294 @@ body {
 
   .project-herbal-featured .p3-stat-row {
     grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ========================================================
+   USER REQUEST UPDATE — ABOUT CARDS, TOC FIT, TOOL LOGOS
+   ======================================================== */
+
+/* About cards: certificate + academic score list */
+.certificate-card h3,
+.academic-card h3 {
+  line-height: 1.22;
+}
+
+.score-list {
+  display: grid;
+  gap: 10px;
+  padding: 0;
+  margin: 16px 0 0;
+  list-style: none;
+}
+
+.score-list li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 14px;
+  align-items: center;
+  padding: 12px 14px;
+  border: 1px solid rgba(170, 204, 214, 0.7);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.score-list strong {
+  color: #475569;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  font-weight: 800;
+}
+
+.score-list em {
+  min-width: 46px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--navy), var(--blue));
+  font-style: normal;
+  font-weight: 950;
+}
+
+/* Tool logos in My Skills card */
+.tool-logo-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.tool-chip {
+  min-height: 82px;
+  display: grid;
+  place-items: center;
+  gap: 8px;
+  padding: 13px 8px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: #f8fbff;
+  color: var(--navy);
+  transition: 0.24s ease;
+}
+
+.tool-chip img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.tool-chip i {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--navy), var(--blue));
+  font-style: normal;
+  font-size: 0.9rem;
+  font-weight: 950;
+}
+
+.tool-chip strong {
+  color: var(--navy);
+  font-size: 12px;
+  line-height: 1.2;
+  text-align: center;
+  font-weight: 950;
+}
+
+.tool-chip:hover {
+  transform: translateY(-4px);
+  border-color: var(--blue);
+  box-shadow: 0 12px 30px rgba(17, 46, 129, 0.11);
+}
+
+.tool-chip:hover strong {
+  color: var(--blue);
+}
+
+@media (max-width: 640px) {
+  .tool-logo-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .score-list li {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .score-list em {
+    width: fit-content;
+    min-width: 54px;
+  }
+}
+/* ========================================================
+   FINAL FIX V2 — SKILLS WIDTH, TOOL ICONS, NO BROKEN IMAGES
+   ======================================================== */
+
+/* Wider and shorter "What I can do" cards */
+.skills-section .container {
+  width: min(1280px, calc(100% - 40px));
+}
+
+.skills-section .section-head {
+  max-width: 1280px;
+}
+
+.skills-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+.skill-card {
+  padding: 28px 34px;
+  min-height: 0;
+}
+
+.skill-card:nth-child(3) {
+  grid-column: 1 / -1;
+  text-align: center;
+  align-items: center;
+  padding: 34px 42px;
+}
+
+.skill-card:nth-child(3) .skill-icon {
+  margin-inline: auto;
+}
+
+.skill-card:nth-child(3) p {
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+/* Safe local icon system: no external CDN images, no broken image icon */
+.tool-logo-grid {
+  width: 100%;
+  max-width: 1120px;
+  margin: 24px auto 0;
+  display: grid;
+  grid-template-columns: repeat(9, minmax(92px, 1fr));
+  gap: 12px;
+}
+
+.tool-chip {
+  min-height: 76px;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 7px;
+  padding: 12px 10px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: #f8fbff;
+  color: var(--navy);
+  transition: 0.24s ease;
+  overflow: hidden;
+}
+
+.tool-icon {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  color: var(--navy);
+}
+
+.tool-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  fill: currentColor;
+}
+
+.tool-icon text {
+  fill: currentColor;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 950;
+  letter-spacing: -0.08em;
+}
+
+.tool-lettermark {
+  border-radius: 12px;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--navy), var(--blue));
+  font-style: normal;
+  font-size: 0.95rem;
+  font-weight: 950;
+}
+
+.tool-chip strong {
+  color: var(--navy);
+  font-size: 12px;
+  line-height: 1.15;
+  text-align: center;
+  font-weight: 950;
+  white-space: nowrap;
+}
+
+.tool-chip:hover {
+  transform: translateY(-4px);
+  border-color: var(--blue);
+  box-shadow: 0 12px 30px rgba(17, 46, 129, 0.11);
+}
+
+.tool-chip:hover,
+.tool-chip:hover strong,
+.tool-chip:hover .tool-icon {
+  color: var(--blue);
+}
+
+.tool-chip:hover .tool-lettermark {
+  color: #ffffff;
+}
+
+@media (max-width: 1100px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .skill-card:nth-child(3) {
+    grid-column: 1 / -1;
+  }
+
+  .tool-logo-grid {
+    grid-template-columns: repeat(3, minmax(120px, 1fr));
+    max-width: 620px;
+  }
+}
+
+@media (max-width: 760px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-card,
+  .skill-card:nth-child(3) {
+    padding: 24px;
+    text-align: left;
+    align-items: stretch;
+  }
+
+  .skill-card:nth-child(3) .skill-icon {
+    margin-inline: 0;
+  }
+
+  .tool-logo-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-width: none;
+    gap: 10px;
+  }
+
+  .tool-chip {
+    min-height: 70px;
+    border-radius: 18px;
+  }
+}
+
+@media (max-width: 460px) {
+  .tool-logo-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
